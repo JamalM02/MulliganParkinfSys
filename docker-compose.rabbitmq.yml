@@ -1,0 +1,81 @@
+version: '3.8'
+
+services:
+  rabbitmq1:
+    build:
+      context: .
+      dockerfile: Rabbit.Dockerfile
+    image: rabbitmq:3-management
+    container_name: rabbitmq1
+    hostname: rabbitmq1
+    environment:
+      RABBITMQ_ERLANG_COOKIE: "rabbit_cluster_cookie"
+      RABBITMQ_DEFAULT_USER: ${RABBITMQ_USER}
+      RABBITMQ_DEFAULT_PASS: ${RABBITMQ_PASS}
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    networks:
+      - rabbitmq-cluster
+    volumes:
+      - ./rabbitmq-init:/etc/rabbitmq-init
+    command: ["/etc/rabbitmq-init/rabbitmq1.sh"]
+    healthcheck:
+      test: ["CMD-SHELL", "rabbitmq-diagnostics ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  rabbitmq2:
+    build:
+      context: .
+      dockerfile: Rabbit.Dockerfile
+    image: rabbitmq:3-management
+    container_name: rabbitmq2
+    hostname: rabbitmq2
+    environment:
+      RABBITMQ_ERLANG_COOKIE: "rabbit_cluster_cookie"
+      RABBITMQ_DEFAULT_USER: ${RABBITMQ_USER}
+      RABBITMQ_DEFAULT_PASS: ${RABBITMQ_PASS}
+    ports:
+      - "5673:5672"
+      - "15673:15672"
+    networks:
+      - rabbitmq-cluster
+    volumes:
+      - ./rabbitmq-init:/etc/rabbitmq-init
+    command: ["/etc/rabbitmq-init/rabbitmq2.sh"]
+    healthcheck:
+      test: ["CMD-SHELL", "rabbitmq-diagnostics ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  rabbitmq3:
+    build:
+      context: .
+      dockerfile: Rabbit.Dockerfile
+    image: rabbitmq:3-management
+    container_name: rabbitmq3
+    hostname: rabbitmq3
+    environment:
+      RABBITMQ_ERLANG_COOKIE: "rabbit_cluster_cookie"
+      RABBITMQ_DEFAULT_USER: ${RABBITMQ_USER}
+      RABBITMQ_DEFAULT_PASS: ${RABBITMQ_PASS}
+    ports:
+      - "5674:5672"
+      - "15674:15672"
+    networks:
+      - rabbitmq-cluster
+    volumes:
+      - ./rabbitmq-init:/etc/rabbitmq-init
+    command: ["/etc/rabbitmq-init/rabbitmq3.sh"]
+    healthcheck:
+      test: ["CMD-SHELL", "rabbitmq-diagnostics ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+networks:
+  rabbitmq-cluster:
+    driver: bridge

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.GridPane?>
+
+<!--
+FXML for the Parking Enforcement Officer (PEO) Interface
+This interface is designed to assist PEOs in checking parking compliance and issuing citations for violations.
+
+Features:
+1. **Zone and Parking Space Selection**:
+   - A dropdown menu (ComboBox) to select the parking zone.
+   - A dynamically updated dropdown menu to select available parking spaces within the chosen zone.
+
+2. **Vehicle License Plate Input**:
+   - A TextField for entering the vehicle's license plate, enabled only after a parking space is selected.
+
+3. **Parking Status Check**:
+   - A button to check the compliance status of the vehicle in the selected space and zone.
+   - A label to display the parking status (e.g., "Vehicle is parked correctly" or "Vehicle is NOT parked correctly").
+
+4. **Citation Management**:
+   - A TextField to enter the citation amount (enabled only when a violation is detected).
+   - Buttons to issue or cancel a citation, dynamically enabled based on the parking status.
+
+5. **Status Messages**:
+   - Labels to display real-time feedback for parking status and citation actions.
+
+Controller: `PEOController`
+@version 1.5.0
+-->
+
+<GridPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.mulligan.peo.PEOController" hgap="10" vgap="10">
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20" />
+    </padding>
+
+    <!-- Zone Selection -->
+    <Label text="Parking Zone:" GridPane.rowIndex="0" GridPane.columnIndex="0" />
+    <ComboBox fx:id="zoneComboBox" onAction="#onZoneSelected" promptText="Select Zone" GridPane.rowIndex="0" GridPane.columnIndex="1" />
+
+    <!-- Parking Space Selection -->
+    <Label text="Parking Space:" GridPane.rowIndex="1" GridPane.columnIndex="0" />
+    <ComboBox fx:id="parkingSpaceComboBox" onAction="#onParkingSpaceSelected" promptText="Select Parking Space" disable="true" GridPane.rowIndex="1" GridPane.columnIndex="1" />
+
+    <!-- Vehicle License Plate -->
+    <Label text="Vehicle License Plate:" GridPane.rowIndex="2" GridPane.columnIndex="0" />
+    <TextField fx:id="licensePlateField" promptText="Enter Vehicle License Plate" disable="true" GridPane.rowIndex="2" GridPane.columnIndex="1" />
+
+    <!-- Check Parking Status Button -->
+    <Button fx:id="checkStatusButton" text="Check Status" textFill="aliceblue" GridPane.rowIndex="3" GridPane.columnIndex="0" GridPane.columnSpan="2" style="-fx-background-color: #007f00; -fx-font-weight: bold; -fx-cursor: hand" />
+
+    <!-- Check Status Message Label -->
+    <Label fx:id="checkStatusMessageLabel" text="Parking status will appear here." GridPane.rowIndex="3" GridPane.columnIndex="1" GridPane.columnSpan="2" />
+
+    <!-- Citation Amount -->
+    <Label text="Citation Amount:" GridPane.rowIndex="5" GridPane.columnIndex="0" />
+    <TextField fx:id="citationAmountField" promptText="Enter Citation Amount" disable="true" GridPane.rowIndex="5" GridPane.columnIndex="1" />
+
+    <!-- Issue Citation and Cancel Buttons -->
+    <Button fx:id="cancelCitationButton" text="Cancel Citation" textFill="aliceblue" disable="true" GridPane.rowIndex="6" GridPane.columnIndex="0" style="-fx-background-color: rgba(255,0,0,0.51); -fx-font-weight: bold; -fx-cursor: hand" />
+    <Button fx:id="issueCitationButton" text="Issue Citation" textFill="aliceblue" disable="true" GridPane.rowIndex="6" GridPane.columnIndex="1" style="-fx-background-color: #038dd1; -fx-font-weight: bold; -fx-cursor: hand" />
+
+    <!-- Citation Status Message Label -->
+    <Label fx:id="citationStatusMessageLabel"
+           text="Citation status will appear here."
+           wrapText="true"
+           prefWidth="200"
+           GridPane.rowIndex="7"
+           GridPane.columnIndex="0"
+           GridPane.columnSpan="2" />
+</GridPane>

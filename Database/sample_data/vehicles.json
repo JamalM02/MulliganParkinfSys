@@ -1,0 +1,21 @@
+[
+  { "id": 1, "owner_name": "Mark Stewart", "manufacturer": "Mitsubishi", "model": "Toyota 2000GT", "vin": "694-39-764" },
+  { "id": 2, "owner_name": "Ronald Collins", "manufacturer": "TVR", "model": "Toyota Verossa", "vin": "629-69-147" },
+  { "id": 3, "owner_name": "Wayne Miller", "manufacturer": "Bristol", "model": "Toyota Revo", "vin": "921-52-881" },
+  { "id": 4, "owner_name": "Andrew Perez", "manufacturer": "BMW", "model": "Toyota MR2", "vin": "209-20-194" },
+  { "id": 5, "owner_name": "Keith Castillo", "manufacturer": "Landwind", "model": "Toyota Noah", "vin": "570-46-950" },
+  { "id": 6, "owner_name": "Noah Cox", "manufacturer": "Honda", "model": "Toyota Avanza Veloz", "vin": "846-30-905" },
+  { "id": 7, "owner_name": "Thomas Stewart", "manufacturer": "McLaren", "model": "Toyota Regius", "vin": "039-27-181" },
+  { "id": 8, "owner_name": "George Jackson", "manufacturer": "Chery", "model": "Toyota TownAce", "vin": "265-77-464" },
+  { "id": 9, "owner_name": "Frank Allen", "manufacturer": "Caterham", "model": "Toyota Corolla Verso", "vin": "379-86-930" },
+  { "id": 10, "owner_name": "Joe Castillo", "manufacturer": "Fiat", "model": "Toyota Previa", "vin": "665-53-689" },
+  { "id": 11, "owner_name": "Wayne Garcia", "manufacturer": "Rolls-Royce", "model": "Toyota Avensis", "vin": "755-93-955" },
+  { "id": 12, "owner_name": "Gregory Taylor", "manufacturer": "CT&T", "model": "Toyota Avalon", "vin": "713-82-665" },
+  { "id": 13, "owner_name": "Joe Watson", "manufacturer": "Dacia", "model": "Toyota Stout", "vin": "134-80-563" },
+  { "id": 14, "owner_name": "Terry Lewis", "manufacturer": "Daewoo", "model": "Toyota Camry Hybrid", "vin": "005-08-553" },
+  { "id": 15, "owner_name": "James Cook", "manufacturer": "Rolls-Royce", "model": "Toyota Carina II", "vin": "402-91-348" },
+  { "id": 16, "owner_name": "Jerry Ruiz", "manufacturer": "Mazda", "model": "Toyota Grand Hiace", "vin": "076-15-664" },
+  { "id": 17, "owner_name": "Jose Kim", "manufacturer": "Ferrari", "model": "Toyota FT-1", "vin": "935-79-563" },
+  { "id": 18, "owner_name": "Matthew Robinson", "manufacturer": "Ford", "model": "Toyota Vanguard", "vin": "861-60-487" },
+  { "id": 19, "owner_name": "Frank Edwards", "manufacturer": "Foton", "model": "Toyota Belta", "vin": "567-25-224" }
+]

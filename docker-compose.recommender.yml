@@ -1,0 +1,34 @@
+version: '3.8'
+
+services:
+  recserver1:
+    build:
+      context: .
+      dockerfile: Rec.Dockerfile
+    container_name: recserver1
+    environment:
+      NODE_ID: node1
+      RABBITMQ_HOST: ${RABBITMQ_HOST}
+      MONGODB_URI: ${MONGO_URI}
+
+
+  recserver2:
+      build:
+        context: .
+        dockerfile: Rec.Dockerfile
+      container_name: recserver2
+      environment:
+        NODE_ID: node2
+        RABBITMQ_HOST: ${RABBITMQ_HOST}
+        MONGODB_URI: ${MONGO_URI}
+
+  recserver3:
+      build:
+        context: .
+        dockerfile: Rec.Dockerfile
+      container_name: recserver3
+      environment:
+        NODE_ID: node3
+        RABBITMQ_HOST: ${RABBITMQ_HOST}
+        MONGODB_URI: ${MONGO_URI}
+

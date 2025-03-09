@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox prefHeight="500.0" prefWidth="902.0" spacing="10" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mulligan.customer.CustomerController">
+    <GridPane maxWidth="300" prefHeight="91.0">
+        <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="521.599984741211" minWidth="10.0" prefWidth="143.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="769.8" minWidth="10.0" prefWidth="157.39999999999998" />
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="60.79999999999999" minHeight="10.0" prefHeight="34.4" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="31.39999999999999" minHeight="0.0" prefHeight="26.39999999999999" vgrow="SOMETIMES" />
+        </rowConstraints>
+        <children>
+            <!-- Vehicle Information -->
+            <TextField fx:id="licensePlateField" prefHeight="30.0" prefWidth="604.0" promptText="Enter Vehicle Info" style="-fx-border-color: black;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Label style="-fx-font-size: 12px; -fx-text-fill: gray;" text="Vehicle License Plate:" GridPane.rowIndex="1" />
+        </children>
+    </GridPane>
+
+    <!-- Split the layout into two vertical boxes -->
+    <HBox alignment="CENTER" spacing="20">
+        <!-- VBox for Parking Events -->
+        <VBox alignment="CENTER" spacing="10">
+            <Button fx:id="fetchEventsButton" onAction="#onFetchParkingEventsClicked" text="Get Parking Events">
+                <cursor>
+                    <Cursor fx:constant="HAND" />
+                </cursor>
+            </Button>
+            <TableView fx:id="parkingEventsTable" prefHeight="281.0" prefWidth="589.0">
+                <columns>
+                    <TableColumn fx:id="vehicleNumberColumn" text="Vehicle Number" />
+                    <TableColumn fx:id="ownerColumn" text="Owner" />
+                    <TableColumn fx:id="parkingZoneColumn" text="Zone" />
+                    <TableColumn fx:id="parkingSpaceColumn" text="Space" />
+                    <TableColumn fx:id="parkingStartTimeColumn" text="Start Time" />
+                    <TableColumn fx:id="parkingEndTimeColumn" text="End Time" />
+                    <TableColumn fx:id="parkingDurationColumn" text="Duration" />
+                    <TableColumn fx:id="parkingCostColumn" text="Cost" />
+                </columns>
+            </TableView>
+        </VBox>
+
+        <!-- VBox for Recommendations -->
+        <VBox alignment="CENTER" spacing="10">
+            <Button fx:id="recommendButton" text="Get Recommendations" />
+            <TableView fx:id="recommendationTable" prefHeight="230.0" prefWidth="241.0">
+                <columns>
+                    <TableColumn fx:id="recSpaceColumn" text="Space" />
+                    <TableColumn fx:id="recCitationColumn" text="Citations" />
+                </columns>
+            </TableView>
+        </VBox>
+    </HBox>
+
+    <GridPane maxWidth="600" prefHeight="156.0" prefWidth="600.0">
+        <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="152.4" minWidth="10.0" prefWidth="152.4" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="210.0" minWidth="10.0" prefWidth="148.4" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="210.0" minWidth="10.0" prefWidth="148.4" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="210.0" minWidth="10.0" prefWidth="148.4" />
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints maxHeight="33.399998092651366" minHeight="10.0" prefHeight="33.399998092651366" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="33.99999999999999" minHeight="10.0" prefHeight="33.99999999999999" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="41.19999999999999" minHeight="10.0" prefHeight="39.8" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="23.39999999999999" minHeight="0.0" prefHeight="1.3999999999999915" vgrow="SOMETIMES" />
+        </rowConstraints>
+        <children>
+            <!-- Parking Zone Selection -->
+            <Label style="-fx-font-size: 12px; -fx-text-fill: gray;" text="Parking Zone" />
+            <ComboBox fx:id="zoneComboBox" onAction="#onZoneSelected" promptText="Select Zone" GridPane.columnIndex="1" />
+
+            <!-- Parking Space Selection -->
+            <Label style="-fx-font-size: 12px; -fx-text-fill: gray;" text="Parking Space Number" GridPane.rowIndex="1" />
+            <ComboBox fx:id="parkingSpaceComboBox" disable="true" promptText="Select Parking Space" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+
+            <!-- Start Parking Button -->
+            <Button fx:id="startButton" style="-fx-border-color: black; -fx-background-color: green; -fx-text-fill: white; -fx-font-weight: bold; -fx-cursor: hand;" text="Start Parking" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                <cursor>
+                    <Cursor fx:constant="HAND" />
+                </cursor>
+            </Button>
+
+            <!-- Stop Parking Button -->
+            <Button fx:id="stopButton" style="-fx-border-color: black; -fx-background-color: rgba(255,0,0,0.68); -fx-text-fill: white; -fx-font-weight: bold; -fx-cursor: hand;" text="Stop Parking" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                <cursor>
+                    <Cursor fx:constant="HAND" />
+                </cursor>
+            </Button>
+        </children>
+    </GridPane>
+
+    <!-- Message Label at the bottom -->
+    <HBox alignment="CENTER" spacing="10" style="-fx-padding: 10 0 0 0;">
+        <Label fx:id="messageLabel" style="-fx-font-size: 14px; -fx-text-fill: green;" text="STATUS..." />
+    </HBox>
+</VBox>

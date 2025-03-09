@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.Button?>
+
+<!--
+FXML for the Municipality Officer (MO) Dashboard
+Provides a graphical interface for viewing transaction and citation reports.
+Includes:
+1. Transaction Report Section - Displays parking transactions.
+2. Citation Report Section - Displays issued parking citations.
+
+Controller: `MOController`
+Handles all interactions and backend communication for the UI.
+@version 1.3.0
+-->
+
+<VBox xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.mulligan.mo.MOController"
+      spacing="10" alignment="CENTER" style="-fx-padding: 10;">
+
+    <!-- Header Label -->
+    <!-- Displays the title of the dashboard -->
+    <Label text="Municipality Officer Dashboard" style="-fx-font-size: 18; -fx-font-weight: bold;"/>
+
+    <!-- Transaction Report Section -->
+    <VBox spacing="5" alignment="CENTER">
+        <!-- Label for the Transaction Report section -->
+        <Label text="Transaction Report" style="-fx-font-size: 14; -fx-font-weight: bold;"/>
+
+        <!-- TableView for displaying transaction data -->
+        <TableView fx:id="transactionTable" prefHeight="200" prefWidth="600">
+            <columns>
+                <!-- Columns for transaction data -->
+                <TableColumn fx:id="transactionVehicleColumn" text="License Plate" prefWidth="100"/>
+                <TableColumn fx:id="transactionZoneColumn" text="Zone" prefWidth="150"/>
+                <TableColumn fx:id="transactionParkingSpaceColumn" text="Parking Space" prefWidth="150"/>
+                <TableColumn fx:id="transactionStartColumn" text="Start Time" prefWidth="150"/>
+                <TableColumn fx:id="transactionEndColumn" text="End Time" prefWidth="150"/>
+                <TableColumn fx:id="transactionAmountColumn" text="Amount" prefWidth="100"/>
+            </columns>
+        </TableView>
+
+        <!-- Button for retrieving transaction reports -->
+        <Button text="Get Transaction Report" fx:id="getTransactionReportButton"/>
+    </VBox>
+
+    <!-- Citation Report Section -->
+    <VBox spacing="5" alignment="CENTER">
+        <!-- Label for the Citation Report section -->
+        <Label text="Citation Report" style="-fx-font-size: 14; -fx-font-weight: bold;"/>
+
+        <!-- TableView for displaying citation data -->
+        <TableView fx:id="citationTable" prefHeight="200" prefWidth="600">
+            <columns>
+                <!-- Columns for citation data -->
+                <TableColumn fx:id="citationVehicleColumn" text="License Plate" prefWidth="100"/>
+                <TableColumn fx:id="citationZoneColumn" text="Zone" prefWidth="150"/>
+                <TableColumn fx:id="citationParkingSpaceColumn" text="Parking Space" prefWidth="150"/>
+                <TableColumn fx:id="citationIssueTimeColumn" text="Issue Time" prefWidth="150"/>
+                <TableColumn fx:id="citationAmountColumn" text="Amount" prefWidth="100"/>
+                <TableColumn fx:id="citationReasonColumn" text="Reason" prefWidth="200"/>
+            </columns>
+        </TableView>
+
+        <!-- Button for retrieving citation reports -->
+        <Button text="Get Citation Report" fx:id="getCitationReportButton"/>
+    </VBox>
+
+</VBox>

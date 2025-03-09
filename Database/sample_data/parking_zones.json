@@ -1,0 +1,13 @@
+[
+  { "id": -1, "hourly_rate": 0, "zone_name": "NULL", "max_parking_minutes": 0 },
+  { "id": 1, "hourly_rate": 50, "zone_name": "Clay St", "max_parking_minutes": 120 },
+  { "id": 2, "hourly_rate": 40, "zone_name": "Elm St", "max_parking_minutes": 90 },
+  { "id": 3, "hourly_rate": 30, "zone_name": "Oak Rd", "max_parking_minutes": 60 },
+  { "id": 4, "hourly_rate": 60, "zone_name": "Maple Ave", "max_parking_minutes": 180 },
+  { "id": 5, "hourly_rate": 35, "zone_name": "Pine St", "max_parking_minutes": 100 },
+  { "id": 6, "hourly_rate": 45, "zone_name": "Cedar Blvd", "max_parking_minutes": 150 },
+  { "id": 7, "hourly_rate": 25, "zone_name": "Willow Ln", "max_parking_minutes": 80 },
+  { "id": 8, "hourly_rate": 70, "zone_name": "Birch Rd", "max_parking_minutes": 200 },
+  { "id": 9, "hourly_rate": 20, "zone_name": "Ash St", "max_parking_minutes": 50 },
+  { "id": 10, "hourly_rate": 55, "zone_name": "Spruce Dr", "max_parking_minutes": 160 }
+]
